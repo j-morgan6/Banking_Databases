@@ -8,9 +8,9 @@ body, h1, h2, h3, p, ul, li {
     font-family: Arial, sans-serif;
   }
   
-  /* Navigation Menu Styles */
+  /* Menu Bar*/
   nav {
-    background-color: #003399; /* Blue */
+    background-color: #003399;
     padding: 10px;
   }
   
@@ -29,58 +29,56 @@ body, h1, h2, h3, p, ul, li {
     text-decoration: none;
   }
   
-  /* Hero Section Styles */
+  /* Bank Title */
   section#home {
-    background-color: #ffcc00; /* Yellow */
+    background-color: #ffcc00;
     text-align: center;
     padding: 50px 0;
-    color: #003399; /* Blue */
+    color: #003399;
   }
   
-  /* About Us Section Styles */
+  /* About Us */
   section#about {
     background-color: #fff;
     padding: 50px 0;
     text-align: center;
-    color: #003399; /* Blue */
+    color: #003399;
   }
   
-  /* Services Section Styles */
+  /* Services */
   section#services {
-    background-color: #f0f0f0; /* Light Gray */
+    background-color: #f0f0f0;
     padding: 50px 0;
     text-align: center;
-    color: #003399; /* Blue */
+    color: #003399;
   }
   
-  /* Personal Banking Section Styles */
+  /* Personal Banking */
   section#personal {
     background-color: #fff;
     padding: 50px 0;
     text-align: center;
-    color: #003399; /* Blue */
+    color: #003399;
   }
   
-  /* Links in the Personal Banking Section */
+  /* Links in the Personal Banking */
   section#personal a {
-    color: #ffcc00; /* Yellow */
+    color: #ffcc00;
     text-decoration: none;
-    border-bottom: 2px solid #ffcc00; /* Yellow */
+    border-bottom: 2px solid #ffcc00;
   }
   
   section#personal a:hover {
-    background-color: #ffcc00; /* Yellow */
-    color: #003399; /* Blue */
+    background-color: #ffcc00;
+    color: #003399;
   }
-  
-  /* Add your additional CSS styles here as needed */
 
-  /* Login and Signup Page Styles */
+  /* Login and Signup Page */
 section#login, section#signup {
     background-color: #fff;
     padding: 100px 0;
     text-align: center;
-    color: #003399; /* Blue */
+    color: #003399;
   }
   
   section#login h2, section#signup h2 {
@@ -113,7 +111,7 @@ section#login, section#signup {
   
   section#login form input[type="submit"],
   section#signup form input[type="submit"] {
-    background-color: #003399; /* Blue */
+    background-color: #003399;
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -123,6 +121,6 @@ section#login, section#signup {
   
   section#login form input[type="submit"]:hover,
   section#signup form input[type="submit"]:hover {
-    background-color: #002266; /* Darker Blue */
+    background-color: #002266;
   }
   
