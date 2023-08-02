@@ -14,17 +14,17 @@ if ($conn->connect_error) {
 }
 function displayFaculty() {
     global $conn; //reference the global connection object (scope)
-    $sql = "SELECT Customer_ID, Customer_Name, Customer_Address, Bank_ID FROM customer";
+    $sql = "SELECT Employee_ID, Employee_Name, Customer_Address, Employee_Salary, Bank_ID FROM employee";
         $result = $conn->query($sql);
 
        if ($result->num_rows > 0) {
           // Setup the table and headers
-          echo "<table class=\"center\"><tr><th>Customer_ID</th><th>Customer_Name</th>
-          <th>Customer_Address</th><th>Bank_ID<th/><th>Click To Remove</th></tr>";
+          echo "<table><tr><th>Employee_ID</th><th>Employee_Name</th><th>Employee_Address</th><th>Employee_Salary</th><th>Bank_ID</th><th>Click To Remove</th></tr>";
          // output data of each row into a table row
          while($row = $result->fetch_assoc()) {
-             echo "<tr><td>".$row["Customer_ID"]."</td><td>".$row["Customer_Name"]."</td>
-             <td> ".$row["Customer_Address"]."</td><td> ".$row["Bank_ID"]."</td><td><a href=\"Delete-customer.php?form_submitted=1&id=".$row["Customer_ID"]."\">Remove</a></td></tr>";
+             echo "<tr><td>".$row["Employee_ID"]."</td><td>".$row["Employee_Name"]."</td>
+             <td> ".$row["Customer_Address"]."</td><td> ".$row["Employee_Salary"]."</td>
+             <td> ".$row["Bank_ID"]."</td><td><a href=\"Delete-employee.php?form_submitted=1&id=".$row["Employee_ID"]."\">Remove</a></td></tr>";
              }
         echo "</table>"; // close the table
         echo "There are ". $result->num_rows . " results.";
@@ -40,7 +40,7 @@ function displayFaculty() {
 <?php
 displayFaculty();
 ?>
-<form action="Delete-accounts.php" method=get>
+<form action="Delete-employee.php" method=get>
                 <input type="hidden" name="form_submitted" >
                 <input type="hidden" name="id" >
 </form>
@@ -50,7 +50,7 @@ if (isset($_GET["form_submitted"])){
   if (!empty($_GET["id"]) && !empty($_GET["form_submitted"]))
 {
    $profID = $_GET["id"]; //gets id from the form
-   $sqlstatement = $conn->prepare("DELETE FROM customer where id =?"); //prepare the statement
+   $sqlstatement = $conn->prepare("DELETE FROM employee where id =?"); //prepare the statement
    $sqlstatement->bind_param("s",$profID); //insert the variables into the ? in the above statement
    $sqlstatement->execute(); //execute the query
    echo $sqlstatement->error; //print an error if the query fails
@@ -59,7 +59,7 @@ if (isset($_GET["form_submitted"])){
  else {
 	 echo "<b> Error: Something went wrong with the form.</b>";
  }
-header("Refresh:0;url=Delete-customer.php"); //refresh the page to show the faculty is gone
+header("Refresh:0;url=Delete-employee.php"); //refresh the page to show the faculty is gone
 }
    $conn->close();
    ?> <!-- this is the end of our php code -->

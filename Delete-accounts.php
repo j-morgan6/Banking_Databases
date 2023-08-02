@@ -50,7 +50,7 @@ if (isset($_GET["form_submitted"])){
 {
    $profID = $_GET["id"]; //gets id from the form
    $sqlstatement = $conn->prepare("DELETE FROM accounts where id =?"); //prepare the statement
-   $sqlstatement->bind_param("s",$profID); //insert the variables into the ? in the above statement
+   $sqlstatement->bind_param("i",$profID); //insert the variables into the ? in the above statement
    $sqlstatement->execute(); //execute the query
    echo $sqlstatement->error; //print an error if the query fails
    $sqlstatement->close();
@@ -58,7 +58,7 @@ if (isset($_GET["form_submitted"])){
  else {
 	 echo "<b> Error: Something went wrong with the form.</b>";
  }
-header("Refresh:0;url=delfaculty.php"); //refresh the page to show the faculty is gone
+header("Refresh:0;url=Delete-accounts.php"); //refresh the page to show the faculty is gone
 }
    $conn->close();
    ?> <!-- this is the end of our php code -->
