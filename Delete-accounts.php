@@ -23,7 +23,7 @@ function displayFaculty() {
          // output data of each row into a table row
          while($row = $result->fetch_assoc()) {
              echo "<tr><td>".$row["Account_Number"]."</td><td>".$row["Account_Balance"]."</td>
-             <td> ".$row["Customer_ID"]."</td><td><a href=\"Delete-accounts.php?form_submitted=1&id=".$row["Customer_ID"]."\">Remove</a></td></tr>";
+             <td> ".$row["Customer_ID"]."</td><td><a href=\"Delete-accounts.php?form_submitted=1&Customer_ID=".$row["Customer_ID"]."\">Remove</a></td></tr>";
              }
         echo "</table>"; // close the table
         echo "There are ". $result->num_rows . " results.";
@@ -48,8 +48,8 @@ displayFaculty();
 if (isset($_GET["form_submitted"])){
   if (!empty($_GET["Customer_ID"]) && !empty($_GET["form_submitted"]))
 {
-   $profID = $_GET["id"]; //gets id from the form
-   $sqlstatement = $conn->prepare("DELETE FROM accounts where id =?"); //prepare the statement
+   $profID = $_GET["Customer_ID"]; //gets id from the form
+   $sqlstatement = $conn->prepare("DELETE FROM accounts where Customer_ID =?"); //prepare the statement
    $sqlstatement->bind_param("i",$profID); //insert the variables into the ? in the above statement
    $sqlstatement->execute(); //execute the query
    echo $sqlstatement->error; //print an error if the query fails

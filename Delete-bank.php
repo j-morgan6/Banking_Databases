@@ -23,7 +23,7 @@ function displayFaculty() {
          // output data of each row into a table row
          while($row = $result->fetch_assoc()) {
              echo "<tr><td>".$row["Bank_ID"]."</td><td>".$row["Bank_Name"]."</td><td> ".$row["Bank_Address"]."</td>
-             <td><a href=\"Delete-bank.php?form_submitted=1&id=".$row["Bank_ID"]."\">Remove</a></td></tr>";
+             <td><a href=\"Delete-bank.php?form_submitted=1&Bank_ID=".$row["Bank_ID"]."\">Remove</a></td></tr>";
              }
         echo "</table>"; // close the table
         echo "There are ". $result->num_rows . " results.";
@@ -49,7 +49,7 @@ if (isset($_GET["form_submitted"])){
   if (!empty($_GET["Bank_ID"]) && !empty($_GET["form_submitted"]))
 {
    $profID = $_GET["Bank_ID"]; //gets id from the form
-   $sqlstatement = $conn->prepare("DELETE FROM Bank where Bank_ID =?"); //prepare the statement
+   $sqlstatement = $conn->prepare("DELETE FROM bank where Bank_ID =?"); //prepare the statement
    $sqlstatement->bind_param("i",$profID); //insert the variables into the ? in the above statement
    $sqlstatement->execute(); //execute the query
    echo $sqlstatement->error; //print an error if the query fails

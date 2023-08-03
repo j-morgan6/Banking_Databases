@@ -23,7 +23,7 @@ function displayFaculty() {
          // output data of each row into a table row
          while($row = $result->fetch_assoc()) {
              echo "<tr><td>".$row["Loan_ID"]."</td><td>".$row["Loan_Amount"]."</td><td> ".$row["Customer_ID"]."</td>
-             <td><a href=\"Delete-loan.php?form_submitted=1&id=".$row["Loan_ID"]."\">Remove</a></td></tr>";
+             <td><a href=\"Delete-loan.php?form_submitted=1&Loan_ID=".$row["Loan_ID"]."\">Remove</a></td></tr>";
              }
         echo "</table>"; // close the table
         echo "There are ". $result->num_rows . " results.";
@@ -41,15 +41,15 @@ displayFaculty();
 ?>
 <form action="Delete-loan.php" method=get>
                 <input type="hidden" name="form_submitted" >
-                <input type="hidden" name="id" >
+                <input type="hidden" name="Loan_ID" >
 </form>
 <?php
 
 if (isset($_GET["form_submitted"])){
-  if (!empty($_GET["id"]) && !empty($_GET["form_submitted"]))
+  if (!empty($_GET["Loan_ID"]) && !empty($_GET["form_submitted"]))
 {
-   $profID = $_GET["id"]; //gets id from the form
-   $sqlstatement = $conn->prepare("DELETE FROM Bank where id =?"); //prepare the statement
+   $profID = $_GET["Loan_ID"]; //gets id from the form
+   $sqlstatement = $conn->prepare("DELETE FROM loan where Loan_ID =?"); //prepare the statement
    $sqlstatement->bind_param("s",$profID); //insert the variables into the ? in the above statement
    $sqlstatement->execute(); //execute the query
    echo $sqlstatement->error; //print an error if the query fails
